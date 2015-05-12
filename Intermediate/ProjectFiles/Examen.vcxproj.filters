@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\Examen.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{97D0443B-2ACC-49D3-9DF5-3906BEAD064E}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Examen.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\ExamenEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{035E6D32-BCA8-470F-8D20-62383CFD7C57}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\Examen">
+			<UniqueIdentifier>{F13604EE-922E-4305-A332-604AC9589ED0}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Examen\Examen.Build.cs">
+			<Filter>Source\Examen</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\Examen\Examen.cpp">
+			<Filter>Source\Examen</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Examen\Examen.h">
+			<Filter>Source\Examen</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Examen\GM.cpp">
+			<Filter>Source\Examen</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Examen\GM.h">
+			<Filter>Source\Examen</Filter>
+		</ClInclude >
+		<Filter Include="Source\Examen\Resources">
+			<UniqueIdentifier>{36E10AA7-7D0A-4671-A9AE-FD3E18F61036}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source\Examen\Resources\Windows">
+			<UniqueIdentifier>{6DC11A8F-AAB4-4D8A-89BC-0EBAA635FAE0}</UniqueIdentifier>
+		</Filter>
+		<ResourceCompile Include="..\..\Source\Examen\Resources\Windows\Examen.rc">
+			<Filter>Source\Examen\Resources\Windows</Filter>
+		</ResourceCompile >
+	</ItemGroup>
+</Project>
