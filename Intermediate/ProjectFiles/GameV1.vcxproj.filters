@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\GameV1.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{39EB0ACE-D9DA-440E-BC40-4D93F6631F7A}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\GameV1.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\GameV1Editor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{897BC4BD-5D00-4E1D-9383-D04FE67C4470}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\GameV1">
+			<UniqueIdentifier>{E29C371E-C17B-47C2-B29F-8C90372EFAE5}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\GameV1\GameV1.Build.cs">
+			<Filter>Source\GameV1</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\GameV1\GameV1.cpp">
+			<Filter>Source\GameV1</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\GameV1\GameV1.h">
+			<Filter>Source\GameV1</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\GameV1\MyClass.cpp">
+			<Filter>Source\GameV1</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\GameV1\MyClass.h">
+			<Filter>Source\GameV1</Filter>
+		</ClInclude >
+		<Filter Include="Source\GameV1\Resources">
+			<UniqueIdentifier>{38616B19-00E0-4E17-BEF9-1724584352F5}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source\GameV1\Resources\Windows">
+			<UniqueIdentifier>{FB39E315-6B3C-4EB7-ADC2-8EAA727349BC}</UniqueIdentifier>
+		</Filter>
+		<ResourceCompile Include="..\..\Source\GameV1\Resources\Windows\GameV1.rc">
+			<Filter>Source\GameV1\Resources\Windows</Filter>
+		</ResourceCompile >
+	</ItemGroup>
+</Project>
