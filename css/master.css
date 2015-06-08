@@ -1,0 +1,98 @@
+body{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+#board{
+    width: 1000px;
+    height: 1000px;
+    /*height: 100%; screen size friendly needs work*/
+    z-index: -1;
+    position: absolute;
+}
+#playingField{
+    width: 1028px;
+    padding-left: 240px;
+    /*max-height: calc(100% - 60px); width needs to be 2.8% great then board width*/
+    /*height: 100%;*/
+}
+#main{
+    width: 1450;
+    margin-left: auto;
+    margin-right: auto;
+}
+#main ul{
+    padding-left: 28px;
+    margin-top: 0px;
+}
+#main ul li{
+    display: inline;
+}
+#squareList li{
+    padding-right: 52px;
+    position: relative;
+}
+#squareList img{
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 44px;
+    height: 65px;
+}
+#squareList li div{
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 44px;
+    height: 65px;
+    display: inline-block;
+}
+#squareList li .moveCircle{
+    background: #f00;
+}
+#squareList li .moveCircleCombat{
+    background: green;
+}
+#squareList li .moveCircleCombat,
+#squareList li .moveCircle{
+    border-radius: 50%;
+    /*position: absolute;*/
+    /*padding-left: 50px;*/
+    -moz-transform:scale(0.7);
+    -webkit-transform:scale(0.7);
+    transform:scale(0.7);
+    margin-left: -45px;
+    margin-bottom: 20px;
+    height: 15px;
+    /*margin-top: -100px;*/
+    opacity: .5;
+}
+#bluePieceHolder{
+    position: absolute;
+}
+#redPieceHolder{
+    top: -1013px;
+    left: 1000px;
+    position: relative;
+}
+#bluePieceHolder,
+#redPieceHolder{
+    padding-top: 5px;
+    width: 189px;
+}
+#redPieceHolder ul li div{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+#squareList li .moveCircle div {
+
+}
+    /*padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 44px;
+    height: 65px;
+    display: inline-block;
+}*/

@@ -1,0 +1,111 @@
+body{
+    margin-left: 0px;
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+#board{
+    width: 1000px;
+    height: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+    position: absolute;
+}
+#playingField{
+    width: 1028px;
+    position: absolute;
+}
+#playingField ul{
+    list-style: none;
+    padding-left: 0px;
+    padding-left: 28px;
+    margin-top: 0px;
+}
+#playingField ul li{
+    display: block;
+    display: inline;
+    padding-right: 52px;
+}
+#playingField ul li img{
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 44px;
+    height: 65px;
+}
+/*#blankSquare,
+#lakeSquare*/
+#playingField ul li div{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+ul li div{
+    padding-left: 0px;
+    width: 44px;
+    height: 65px;
+    display: inline-block;
+}
+#playingField .moveCircle{
+    background: #f00;
+    border-radius: 50%;
+    position: absolute;
+    padding-left: 50px;
+    -moz-transform:scale(0.35);
+    -webkit-transform:scale(0.35);
+    transform:scale(0.35);
+    margin-left: -70px;
+    margin-top: 0px;
+    opacity: .5;
+}
+
+#pieceHolder{
+    padding-left: 1050px;
+    width: 400px;
+}
+#pieceHolder li{
+    display: inline;
+}
+#pieceHolder li img{
+    width: 44px;
+    height: 65px;
+}
+
+#pieceHolder div[id*="blankSquare"] {   
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width: 10%;
+    height: 10%;
+}
+#pieceHolder .moveCircle{
+    background: #f00;
+    border-radius: 50%;
+    position: absolute;
+    padding-left: 50px;
+    -moz-transform:scale(0.35);
+    -webkit-transform:scale(0.35);
+    transform:scale(0.35);
+    margin-left: -55px;
+    margin-top: 0px;
+    opacity: .5;
+    width: 20px;
+}
+#premade{
+    position: absolute;
+    padding-top: 50px;
+    left: 1108px;
+    -moz-transform:scale(2.5);
+    -webkit-transform:scale(2.5);
+    transform:scale(2.5);
+}
+#premade ul{
+    list-style: none;
+    padding-left: 0px;
+}
+
+#pieceHolder div[id*="blankSquare"] {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width: 11%;
+    height: 4.15%;
+}
