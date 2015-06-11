@@ -1,4 +1,5 @@
 body{
+    background-color: #e5e5e5;
     margin-left: 0px;
     margin-top: 0px;
     padding-left: 0px;
@@ -47,7 +48,7 @@ ul li div{
     display: inline-block;
 }
 #playingField .moveCircle{
-    background: #f00;
+    background: #fff;
     border-radius: 50%;
     position: absolute;
     padding-left: 50px;
@@ -78,7 +79,7 @@ ul li div{
     height: 10%;
 }
 #pieceHolder .moveCircle{
-    background: #f00;
+    background: #fff;
     border-radius: 50%;
     position: absolute;
     padding-left: 50px;

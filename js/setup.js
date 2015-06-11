@@ -1,11 +1,20 @@
 
-
+/**
+ * Description
+ * @method startGame
+ * @return 
+ */
 function startGame(){
 	var listTextStr = document.getElementById('squareList').innerHTML;
 	localStorage.setItem('testObject', listTextStr);
-	window.location.assign("boardList.html");
+	window.location.assign("board.html");
 }
 
+/**
+ * Description
+ * @method redTurn
+ * @return 
+ */
 function redTurn(){
 	flipPieces("blue");
 	setupOnClick("red");
@@ -13,18 +22,43 @@ function redTurn(){
     setupDiv.innerHTML = '<ul><li><input id="switchSetup" type="button" value="Place" onclick="premadeSetup(\'red\',\'place\')" /></li></ul>';
 }
 
+/**
+ * Description
+ * @method setupOnClick
+ * @param {} playerColor
+ * @return 
+ */
 function setupOnClick(playerColor){
+	/**
+	 * Description
+	 * @method onclick
+	 * @param {} e
+	 * @return 
+	 */
 	squareList.onclick=function(e){
 		deleteAllDots();
 		boardPiecePlacement(e.target.id, playerColor);
 	};
 
+	/**
+	 * Description
+	 * @method onclick
+	 * @param {} e
+	 * @return 
+	 */
 	pieceHolder.onclick=function(e){
 		deleteAllDots();
 		sidePiecePlacement(e.target.id, playerColor);
 	};
 }
 
+/**
+ * Description
+ * @method sidePiecePlacement
+ * @param {} pieceName
+ * @param {} playerColor
+ * @return 
+ */
 function sidePiecePlacement(pieceName, playerColor){
 	var squareList=document.getElementById('squareList');
 	var pieceHolder =document.getElementById('pieceHolder');
@@ -37,7 +71,12 @@ function sidePiecePlacement(pieceName, playerColor){
 	if (color == "blank") //makes sure we don't allow them to click on blank squares
 		return;
 
-    // @TODO can we combine activteDotBoard and active into one function?
+    /**
+     * Description
+     * @method activateDotBoard
+     * @param {} startPoint
+     * @return 
+     */
     function activateDotBoard(startPoint){
         for(var i = startPoint; i < startPoint+40; i++){
             activateDot(square, i, "sideToBoard");
@@ -52,6 +91,13 @@ function sidePiecePlacement(pieceName, playerColor){
 	}
 }
 
+/**
+ * Description
+ * @method boardPiecePlacement
+ * @param {} pieceName
+ * @param {} playerColor
+ * @return 
+ */
 function boardPiecePlacement(pieceName, playerColor){
 	var squareList=document.getElementById('squareList');
 	var pieceHolder =document.getElementById('pieceHolder');
@@ -62,9 +108,16 @@ function boardPiecePlacement(pieceName, playerColor){
 	var square = pieceName.split("-")[1];
 	var name = pieceName.split("-")[0].replace("blue", "").replace("red", "");
 
-	if (name == "blankSquare") //makes sure we don't allow them to click on blank squares
+	if (name == "blankSquare") //makes sure the player doesn't allow them to click on blank squares
 		return;
 
+    /**
+     * Description
+     * @method activate
+     * @param {} startPoint
+     * @param {} subtract
+     * @return 
+     */
     function activate(startPoint,subtract){
     for (var i = startPoint; i < startPoint+40; i++){
         checkstatus(i-subtract, square);
@@ -81,6 +134,11 @@ function boardPiecePlacement(pieceName, playerColor){
 	}
 }
 
+/**
+ * Description
+ * @method onload
+ * @return 
+ */
 window.onload=function(){
 	alert("Blue Begins");
 	setupOnClick("blue");
@@ -89,6 +147,13 @@ window.onload=function(){
 
 
 
+/**
+ * Description
+ * @method checkstatus
+ * @param {} squareNumber
+ * @param {} movedFromSquare
+ * @return 
+ */
 function checkstatus(squareNumber, movedFromSquare){
     var lItems = document.getElementById("pieceHolder").getElementsByTagName("li");
     var currentSquare = (lItems[squareNumber].innerHTML).split('"').reverse()[1];
@@ -98,6 +163,14 @@ function checkstatus(squareNumber, movedFromSquare){
     }
 }
 
+/**
+ * Description
+ * @method activateDot
+ * @param {} movedFromSquare
+ * @param {} movedToSquare
+ * @param {} type
+ * @return 
+ */
 function activateDot(movedFromSquare, movedToSquare, type){
 	var board = document.getElementById("squareList").getElementsByTagName("li");
 	var sideboard =  document.getElementById("pieceHolder").getElementsByTagName("li");
@@ -108,6 +181,11 @@ function activateDot(movedFromSquare, movedToSquare, type){
 		currentHTML = board[movedToSquare].innerHTML;
 		newHTML = currentHTML+'<div class="moveCircle" id="listenForClick'+movedToSquare+'"></div>';
 		board[movedToSquare].innerHTML = newHTML;
+		/**
+		 * Description
+		 * @method onclick
+		 * @return 
+		 */
 		document.getElementById("listenForClick"+movedToSquare).onclick = function(){
 			dotClicked(movedFromSquare, movedToSquare, type);
 		};
@@ -118,6 +196,14 @@ function activateDot(movedFromSquare, movedToSquare, type){
 	}
 }
 
+/**
+ * Description
+ * @method dotClicked
+ * @param {} movedFromSquare
+ * @param {} movedToSquare
+ * @param {} type
+ * @return 
+ */
 function dotClicked(movedFromSquare, movedToSquare, type){
 
 	var board = document.getElementById("squareList").getElementsByTagName("li");
@@ -181,6 +267,12 @@ function dotClicked(movedFromSquare, movedToSquare, type){
 
 
 
+/**
+ * Description
+ * @method colorOfClick
+ * @param {} idname
+ * @return 
+ */
 function colorOfClick(idname){
 	if ((idname).indexOf("blue") != -1){
 		return "blue";
@@ -193,8 +285,20 @@ function colorOfClick(idname){
 	}
 }
 	
+/**
+ * Description
+ * @method deleteAllDots
+ * @return 
+ */
 function deleteAllDots(){
     // clear main board
+    /**
+     * Description
+     * @method deleteDots
+     * @param {} elementGroup
+     * @param {} size
+     * @return 
+     */
     function deleteDots(elementGroup,size){
         var board = document.getElementById(elementGroup).getElementsByTagName("li");
         for (var i = 0; i < size; i++){
@@ -208,6 +312,12 @@ function deleteAllDots(){
     deleteDots("pieceHolder",80);
 }
 
+/**
+ * Description
+ * @method flipPieces
+ * @param {} color
+ * @return 
+ */
 function flipPieces(color){
     var lines = document.getElementById("squareList").getElementsByTagName("li");
 
@@ -227,6 +337,15 @@ function flipPieces(color){
     }
 }
 
+/**
+ * Description
+ * @method premadeButton
+ * @param {} id
+ * @param {} value
+ * @param {} functionCall
+ * @return 
+ */
+ 
 function premadeButton(id,value,functionCall){
     var premadeDiv = document.getElementById('premade');
     var premadeLI = premadeDiv.getElementsByTagName('li');
@@ -243,6 +362,13 @@ function premadeButton(id,value,functionCall){
     premadeDiv.innerHTML = (premadeDiv.innerHTML).replace("</ul>","")+"<li>"+button+'</li></ul>';
 }
 
+/**
+ * Description
+ * @method premadeSetup
+ * @param {} color
+ * @param {} setupType
+ * @return 
+ */
 function premadeSetup(color, setupType){ 
    var setupList = [];
     if (setupType == "place"){

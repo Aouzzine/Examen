@@ -1,7 +1,19 @@
+
+/**
+ * Description
+ * @method setupClick
+ * @return 
+ */
 function setupClick(){
     "use strict";
     var squareList=document.getElementById("squareList");
-    // These are for once we have setup completely set up 
+    // These are for once the player has setup completely set up 
+    /**
+     * Description
+     * @method onclick
+     * @param {} e
+     * @return 
+     */
     squareList.onclick=function(e){
         deleteAllDots();
         if(colorOfClick(e.target.id) == localStorage.getItem("turn")){
@@ -12,6 +24,11 @@ function setupClick(){
         }
     };
 }
+/**
+ * Description
+ * @method onload
+ * @return 
+ */
 window.onload=function(){
     // ENABLE START GAME BUTTON RETRIEVE FROM SETUP.HTML
     var setupResults = localStorage.getItem('testObject')
@@ -23,6 +40,12 @@ window.onload=function(){
     setupClick();
 };
 
+/**
+ * Description
+ * @method posmoves
+ * @param {} pieceName
+ * @return 
+ */
 function posmoves(pieceName){
     
     var name = pieceName.split("-")[0].replace("blue", "").replace("red", ""); // the name of the piece (Spy, Bomb, 9 etc..)
@@ -31,7 +54,6 @@ function posmoves(pieceName){
     var color = colorOfClick(pieceName);
 
     setupClick();
-    // activateDot(33, 34); // we need to call in the the variables moveTo and moveFrom
 
     if (name == "Bomb" || name == "Flag" || name == "lakeSquare" || name == "blankSquare")
         return; // if it's a piece that can't move
@@ -69,6 +91,12 @@ function posmoves(pieceName){
     }
 }
 
+/**
+ * Description
+ * @method colorOfClick
+ * @param {} idname
+ * @return 
+ */
 function colorOfClick(idname){
         
         if ((idname).indexOf("blue") != -1){
@@ -82,6 +110,14 @@ function colorOfClick(idname){
         }
     }
 
+/**
+ * Description
+ * @method checkstatus
+ * @param {} squareNumber
+ * @param {} color
+ * @param {} movedFromSquare
+ * @return 
+ */
 function checkstatus(squareNumber, color, movedFromSquare){
    
     var lItems = document.getElementById("squareList").getElementsByTagName("li");
@@ -101,6 +137,12 @@ function checkstatus(squareNumber, color, movedFromSquare){
         activateDot(movedFromSquare, squareNumber, "combat");
 }
 
+/**
+ * Description
+ * @method checkSideboard
+ * @param {} color
+ * @return 
+ */
 function checkSideboard (color){
     var redLItems = document.getElementById("redPieceHolder").getElementsByTagName("li");
     var blueLItems = document.getElementById("bluePieceHolder").getElementsByTagName("li");
@@ -129,6 +171,14 @@ function checkSideboard (color){
 
 }
 
+/**
+ * Description
+ * @method activateDot
+ * @param {} movedFromSquare
+ * @param {} movedToSquare
+ * @param {} type
+ * @return 
+ */
 function activateDot(movedFromSquare, movedToSquare, type){
 
     var lItems = document.getElementById("squareList").getElementsByTagName("li");
@@ -141,10 +191,21 @@ function activateDot(movedFromSquare, movedToSquare, type){
     lItems[movedToSquare].innerHTML = newHTML;
     lItems = document.getElementById("squareList").getElementsByTagName("li");
     
+    /**
+     * Description
+     * @method onclick
+     * @return 
+     */
     document.getElementById("listenForClick"+movedToSquare).onclick = function(){
         dotClicked(movedFromSquare, movedToSquare);
     };
 }
+/**
+ * Description
+ * @method sleep
+ * @param {} milliseconds
+ * @return 
+ */
 function sleep(milliseconds) {
  
     var start = new Date().getTime();
@@ -155,6 +216,13 @@ function sleep(milliseconds) {
     }
 }
 
+/**
+ * Description
+ * @method dotClicked
+ * @param {} movedFromSquare
+ * @param {} movedToSquare
+ * @return 
+ */
 function dotClicked(movedFromSquare, movedToSquare){
     deleteAllDots();
     var lItems = document.getElementById("squareList").getElementsByTagName("li");
@@ -176,10 +244,10 @@ function dotClicked(movedFromSquare, movedToSquare){
     // -1 do nothing 
     if(result != 3)
     {
-        // alert(squareID2); // doesnt like alerts
+        // alert(squareID2); // doesnt like alerts(Bugged)
         flipSinglePiece(squareID2);
         var changedMovedToHTML = lItems[movedToSquare].innerHTML;
-        alert("RAAAAAHHHAHAHAHAHHHHHAAHHHHH");
+        alert("It's Dead");
     }
     var openSideSquareA;
     var openSideSquareB;
@@ -244,10 +312,12 @@ function dotClicked(movedFromSquare, movedToSquare){
 
     }
 
-    else if (result == 2){ // End the game (Call an endgame(playerX) function)
-        // alert("Game!"); doesnt like alerts
+    else if (result == 2){ 
+
+        // End the game (Call an endgame(playerX) function)
         // lItems[movedFromSquare].innerHTML = '<div id="blankSquare-'+movedFromSquare+'">'; 
         // deleteAllDots();
+        // Callback needs to be written
     }
     
     lItems[movedFromSquare].innerHTML = "<div id=\"blankSquare-"+movedFromSquare+"\">"; // blank square leaving piece
@@ -263,8 +333,11 @@ function dotClicked(movedFromSquare, movedToSquare){
         if (result == 1){
             flipSinglePiece(newSquareID1);
         }
+
         flipPieces("blue");
-        alert("switch people");
+        alert("Red player can now play");
+
+
         if (result == 1){
             flipSinglePiece(newSquareID1);
         }
@@ -281,7 +354,7 @@ function dotClicked(movedFromSquare, movedToSquare){
             flipSinglePiece(newSquareID1);  
         }
         flipPieces("red");        
-        alert("switch people");
+        alert("Blue player can now play");
         if (result == 1)
         {
             flipSinglePiece(newSquareID1);
@@ -295,6 +368,14 @@ function dotClicked(movedFromSquare, movedToSquare){
     setupClick();
 }
 
+/**
+ * Description
+ * @method recursive
+ * @param {} movedToSquare
+ * @param {} direction
+ * @param {} movedFromSquare
+ * @return 
+ */
 function recursive(movedToSquare, direction, movedFromSquare){
     
     var lItems = document.getElementById("squareList").getElementsByTagName("li");
@@ -329,6 +410,13 @@ function recursive(movedToSquare, direction, movedFromSquare){
 }
 
 
+/**
+ * Description
+ * @method combat
+ * @param {} a
+ * @param {} b
+ * @return 
+ */
 function combat(a, b){ // a is the attacking piece, if a wins the function returns 1, if b wins it returns -1, otherwise returns 0 if they tie both die, or 2 if its a flag
     
     if (a == b) // If they tie
@@ -355,6 +443,7 @@ function combat(a, b){ // a is the attacking piece, if a wins the function retur
     if(b == "Flag")
     {
         alert("Game Over");
+        window.location.href = "../index.html"
         return 2;
     }
         
@@ -367,6 +456,12 @@ function combat(a, b){ // a is the attacking piece, if a wins the function retur
 
 
 // a function to switch the backs of the pieces
+/**
+ * Description
+ * @method flipPieces
+ * @param {} color
+ * @return 
+ */
 function flipPieces(color){
 
     var lines = document.getElementById("squareList").getElementsByTagName("li");
@@ -383,18 +478,20 @@ function flipPieces(color){
             else{
                 // change to backIMG
                 var newSquare = line.replace(new RegExp("/(.*)png","g"),"/images/pieces/"+color+"Back.png")
-                // alert(newSquare)
+                // alert(newSquare) debugging
                 lines[i].innerHTML = newSquare;
-                // var wholeDocument = document.documentElement.outerHTML
-                // alert(wholeDocument)
-                // document.write(wholeDocument)
-
             }
         }
     }
 }
 
-// a function to switch the backs of the pieces
+// (a) function to switch the backs of the pieces
+/**
+ * Description
+ * @method flipSinglePiece
+ * @param {} pieceName
+ * @return 
+ */
 function flipSinglePiece(pieceName){
 
     var lines = document.getElementById("squareList").getElementsByTagName("li");
@@ -422,6 +519,11 @@ function flipSinglePiece(pieceName){
     }
 }
 
+/**
+ * Description
+ * @method deleteAllDots
+ * @return 
+ */
 function deleteAllDots(){
  
     var lines = document.getElementById("squareList").getElementsByTagName("li");
